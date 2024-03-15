@@ -1,0 +1,9 @@
+A simple Terraform example that 
+
+Creates a VPC
+Creates a Subnet within that VPC
+Creates an Ec2 instance in that VPC
+Creates and mounts some storage to that ec2 instance
+Creates rules to allow ssh to that instance
+Creates an internet gateway to allow internet access
+Uses an existing S3 bucket to store the tf.state file.
