@@ -9,7 +9,7 @@ resource "aws_vpc" "test-main" {
   }
 }
 
-resource "aws_subnet" "cassandra_subnet_A" {
+resource "aws_subnet" "subnet_A" {
   cidr_block = "172.20.1.0/24"
   vpc_id     = aws_vpc.test-main.id
   tags = {
@@ -49,7 +49,7 @@ resource "aws_security_group" "allow_ssh" {
 resource "aws_instance" "ec2-main" {
   ami                         = "ami-0cf57bb5d0dedcb6c"
   instance_type               = "c4.2xlarge"
-  subnet_id                   = aws_subnet.cassandra_subnet_A.id
+  subnet_id                   = aws_subnet.subnet_A.id
   key_name                    = "Test-key"
   vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
   associate_public_ip_address = true
@@ -76,7 +76,7 @@ resource "aws_route_table" "example_route_table" {
 }
 
 resource "aws_route_table_association" "route_table_A" {
-  subnet_id      = aws_subnet.cassandra_subnet_A.id
+  subnet_id      = aws_subnet.subnet_A.id
   route_table_id = aws_route_table.example_route_table.id
 }
 
