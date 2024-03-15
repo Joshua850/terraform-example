@@ -15,10 +15,4 @@ variable "VPC_SUBNET" {
 variable "EC2_SG" {
   description = "EC2 SG"
 }
-variable "ELB_SG" {
-  description = "ELB SG"
-}
 
-variable "DOMAIN_HOSTED_ZONE_ID" {
-  description = "DOMAIN_HOSTED_ZONE_ID"
-}
